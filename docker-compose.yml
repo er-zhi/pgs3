@@ -1,0 +1,9 @@
+services:
+  postgres:
+    build: .
+    ports:
+      - "5432:5432"
+      - "${AWS_S3_PORT:-9000}:${AWS_S3_PORT:-9000}"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      AWS_S3_PORT: ${AWS_S3_PORT:-9000} 
